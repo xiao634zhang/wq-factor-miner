@@ -1,0 +1,38 @@
+# WorldQuant Brain 配置文件模板
+# 复制此文件为 config.yaml 并填入你的账号信息
+
+worldquant:
+  username: "your_username"
+  password: "your_password"
+  api_base: "https://api.worldquantbrain.com"
+
+# 代理设置（如果需要）
+proxy:
+  http: "http://127.0.0.1:7890"
+  https: "http://127.0.0.1:7890"
+
+# 回测设置
+backtest:
+  max_concurrent: 2        # 最大并发数（建议1-2，避免触发API限制）
+  timeout: 300             # 超时时间（秒）
+  retry_attempts: 3        # 重试次数
+  delay_between_requests: 30  # 请求间延迟（秒）
+
+# 参数优化设置
+optimization:
+  method: "grid_search"    # 优化方法：grid_search, adaptive
+  max_iterations: 100      # 最大迭代次数
+
+# 遗传规划设置
+gp:
+  population_size: 100     # 种群大小
+  generations: 50          # 进化代数
+  tournament_size: 7       # 锦标赛大小
+  crossover_prob: 0.8      # 交叉概率
+  mutation_prob: 0.2       # 变异概率
+  max_tree_depth: 5        # 最大树深度
+
+# 日志设置
+logging:
+  level: "INFO"            # 日志级别：DEBUG, INFO, WARNING, ERROR
+  file: "logs/wq_factor_miner.log"
